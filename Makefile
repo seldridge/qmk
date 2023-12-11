@@ -5,7 +5,7 @@ repoQmk ?= $(HOME)/repos/github.com/qmk/qmk_firmware
 all: build
 
 build: install
-	cd $(repoQmk) && qmk compile -km seldridge
+	cd $(repoQmk) && qmk compile -kb crkbd -km seldridge -e CONVERT_TO=elite_pi
 
 install:
 	stow qmk_firmware -t $(repoQmk)
