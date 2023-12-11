@@ -1,0 +1,26 @@
+name: "Build QMK Firmware"
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Install Dependencies"
+        run: |
+          pip3 install "qmk==1.1.2"
+          qmk setup -y -H qmk_firmware
+          sudo apt install stow
+      - name: "Clone Configuration"
+        uses: actions/checkout@v4
+        with:
+          path: 'qmk'
+      - name: "Build"
+        run: |
+          cd qmk
+          repoQmk=$GITHUB_WORKSPACE/qmk_firmware make
+      - name: "Upload firmware binary"
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware
+          path: ${{ github.workspace }}/qmk_firmware/*.uf2
