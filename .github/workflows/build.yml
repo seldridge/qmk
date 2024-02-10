@@ -20,7 +20,7 @@ jobs:
           cd qmk
           repoQmk=$GITHUB_WORKSPACE/qmk_firmware make
       - name: "Upload firmware binary"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: ${{ github.workspace }}/qmk_firmware/*.uf2
