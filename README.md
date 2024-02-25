@@ -4,12 +4,9 @@ This repository contains QMK firmware maintained out-of-tree.
 The out-of-tree-ness is managed with GNU Stow.
 This is done to avoid having to keep a fork of QMK around.
 
+Pushes to this repository will trigger a GitHub Action that builds the firmware.
+Once the firmware is built, it can be copied to the Raspberry Pi when it is in mass storage device mode.
 
-``` shell
-qmk compile -kb crkbd -km default -e CONVERT_TO=elite_pi
+## Layout
 
-# Copy this to the RPI mass storage device when it is in bootloader mode
-#
-# The following, does not work:
-# qmk flash -c -kb <keyboard> -km <keymap> -e CONVERT_TO=elite_pi
-```
+![A picture showing a 3-layer keymap](https://raw.githubusercontent.com/seldridge/qmk/assets/keyboard.jpg)
