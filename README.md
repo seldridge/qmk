@@ -9,4 +9,4 @@ Once the firmware is built, it can be copied to the Raspberry Pi when it is in m
 
 ## Layout
 
-![A picture showing a 3-layer keymap](https://raw.githubusercontent.com/seldridge/qmk/assets/keyboard.jpg)
+![A picture showing a 3-layer keymap](https://raw.githubusercontent.com/seldridge/qmk/assets/keyboard.png)
