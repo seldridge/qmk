@@ -1,7 +1,7 @@
 name: "Build QMK Firmware"
 
 env:
-  qmk-version: 1.1.5
+  qmk-version: 1.2.0
 
 on:
   push:
@@ -13,9 +13,9 @@ jobs:
     steps:
       - name: "Install Dependencies"
         run: |
+          sudo apt install avrdude dfu-programmer dfu-util dos2unix gcc-arm-none-eabi gcc-avr stow
           pip3 install "qmk==${{ env.qmk-version }}"
           qmk setup -y -H qmk_firmware
-          sudo apt install stow
       - name: "Clone Configuration"
         uses: actions/checkout@v4
         with:
