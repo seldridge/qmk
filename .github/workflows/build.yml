@@ -17,7 +17,7 @@ jobs:
           pip3 install "qmk==${{ env.qmk-version }}"
           qmk setup -y -H qmk_firmware
       - name: "Clone Configuration"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: 'qmk'
       - name: "Build"
@@ -25,7 +25,7 @@ jobs:
           cd qmk
           repoQmk=$GITHUB_WORKSPACE/qmk_firmware make
       - name: "Upload firmware binary"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: firmware
           path: ${{ github.workspace }}/qmk_firmware/*.uf2
