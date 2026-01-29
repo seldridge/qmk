@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: "Install Dependencies"
         run: |
-          sudo apt install avrdude dfu-programmer dfu-util dos2unix gcc-arm-none-eabi gcc-avr stow
+          sudo apt install avr-libc avrdude dfu-programmer dfu-util dos2unix gcc-arm-none-eabi gcc-avr stow
           pip3 install "qmk==${{ env.qmk-version }}"
           qmk setup -y -H qmk_firmware
       - name: "Clone Configuration"
@@ -28,4 +28,6 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: firmware
-          path: ${{ github.workspace }}/qmk_firmware/*.uf2
+          path: |
+            ${{ github.workspace }}/qmk_firmware/*.uf2
+            ${{ github.workspace }}/qmk_firmware/*.hex
